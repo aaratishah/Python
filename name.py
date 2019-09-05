@@ -1,0 +1,2 @@
+print ("aarati"*4)
+
