@@ -7,87 +7,80 @@ app = QApplication(sys.argv)
 widget = QWidget()
 label = QLabel("Result:",widget)
 
-btnAdd = QPushButton("+", widget)
-btnSubtract = QPushButton("-", widget)
-btnMultiply = QPushButton("*", widget)
-btnDivide = QPushButton("/", widget)
-btnPercent = QPushButton("%", widget)
+AddButton = QPushButton("+", widget)
+SubtractButton = QPushButton("-", widget)
+MultiplyButton = QPushButton("*", widget)
+DivideButton = QPushButton("/", widget)
+PercentButton = QPushButton("%", widget)
 
 txtArea1 = QLineEdit("", widget)
 txtArea2 = QLineEdit("", widget)
 
 def init():
-    widget.resize(300, 300)
-    widget.move(300, 300)
+    widget.resize(250, 300)
+    widget.move(250, 300)
     widget.setWindowTitle('Calculator')
     widget.show()
  
     txtArea1.move(20, 30)
-    txtArea1.show()
     txtArea2.move(20, 80)
-    txtArea2.show()
+    
  
     label.setText("")
     label.move(20, 110)
-    label.show()
+    
  
-    btnAdd.setToolTip("Addition")
-    btnAdd.move(20, 160)
-    btnAdd.clicked.connect(addition)
-    btnAdd.show()
+    AddButton.setToolTip("Addition")
+    AddButton.move(20, 160)
+    AddButton.clicked.connect(addition)
+    
  
-    btnSubtract.setToolTip("Subtraction")
-    btnSubtract.move(110, 160)
-    btnSubtract.clicked.connect(subtraction)
-    btnSubtract.show()
+    SubtractButton.setToolTip("Subtraction")
+    SubtractButton.move(110, 160)
+    SubtractButton.clicked.connect(subtraction)
+    
  
-    btnDivide.setToolTip("Division")
-    btnDivide.move(20, 210)
-    btnDivide.clicked.connect(division)
-    btnDivide.show()
+    DivideButton.setToolTip("Division")
+    DivideButton.move(20, 200)
+    DivideButton.clicked.connect(division)
+    
  
-    btnMultiply.setToolTip("Multiplication")
-    btnMultiply.move(110, 210)
-    btnMultiply.clicked.connect(multiplication)
-    btnMultiply.show()
+    MultiplyButton.setToolTip("Multiplication")
+    MultiplyButton.move(110, 200)
+    MultiplyButton.clicked.connect(multiplication)
+   
 
-    btnPercent.setToolTip("Percentage")
-    btnPercent.move(75,190)
-    btnPercent.clicked.connect(percent)
+    PercentButton.setToolTip("Percentage")
+    PercentButton.move(70,235)
+    PercentButton.clicked.connect(percent)
 
  
  
 def addition():
     num1 = int(txtArea1.text())
     num2 = int(txtArea2.text())
-    label.setFixedWidth(200)
-    label.setText(str(num1 + num2))
+    label.setText(str(num1) + "+" + str(num2) + "=" + str(num1 + num2))
  
  
 def subtraction():
     num1 = int(txtArea1.text())
     num2 = int(txtArea2.text())
-    label.setFixedWidth(200)
-    label.setText(str(num1 - num2))
+    label.setText(str(num1) + "-" + str(num2) + "=" + str(num1 - num2))
  
  
 def multiplication():
     num1 = int(txtArea1.text())
     num2 = int(txtArea2.text())
-    label.setFixedWidth(200)
-    label.setText(str(num1 * num2))
+    label.setText(str(num1) + "*" + str(num2) + "=" + str(num1 * num2))
  
  
 def division():
     num1 = int(txtArea1.text())
     num2 = int(txtArea2.text())
-    label.setFixedWidth(200)
-    label.setText(str(num1 / num2))
+    label.setText(str(num1) + "/" + str(num2) + "=" + str(num1 / num2))
 
 def percent():
     num1 = int(txtArea1.text())
-    
-    label.setFixedWidth(200)
     label.setText(str(num1/100))
 
  
