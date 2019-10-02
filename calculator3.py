@@ -17,6 +17,7 @@ TangentButton = QPushButton("tan", widget)
 SineButton = QPushButton("sin", widget)
 CosineButton = QPushButton("cos", widget)
 FactButton = QPushButton("!", widget)
+ClearButton = QPushButton("C", widget)
 
 txtArea1 = QLineEdit("", widget)
 txtArea2 = QLineEdit("", widget)
@@ -69,6 +70,10 @@ def init():
     FactButton.setToolTip("Factorial")
     FactButton.move(20, 320)
     FactButton.clicked.connect(factorials)
+
+    ClearButton.setToolTip("Clear")
+    ClearButton.move(110,120)
+    ClearButton.clicked.connect(clear)
 
  
 def addition():
@@ -125,7 +130,12 @@ def factorials():
     num1 = int(txtArea1.text())
     label.setFixedWidth(200)
     label.setText(str(num1) + " !" + " = " + str(factorial(num1))) 
- 
+
+def clear():
+    txtArea1.setText("")
+    txtArea2.setText("")
+    label.setText("")
+
 if __name__ == "__main__":
     init()
  
